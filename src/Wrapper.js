@@ -15,12 +15,21 @@ const TextWrapper = styled.div`
   font-weight: 700;
   color: #aaa;
   text-transform: uppercase;
+  @media (max-width: 40rem) {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `
 
 const ContentWrapper = styled.div`
   width: 75%;
   display: inline-block;
-  vertical-align: top;  
+  vertical-align: top;
+  @media (max-width: 40rem) {
+    display: block;
+    width: 100%;
+  }
 `
 
 const Wrapper = ({ name, children }) => (
