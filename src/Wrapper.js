@@ -21,12 +21,17 @@ const LeftNav = styled.div`
 
 const RightView = styled.div`
   width: 75%;
-  height: 100%;  
+  height: 100%;
   background-color: #fff;
+`
+
+const SubComponentContainer = styled.div`
+  margin: .75rem 0;
 `
 
 const SubComponent = styled.div`
   padding: ${props => props.active ? '.75rem' : '.75rem 0'};
+  margin: ${props => props.active ? '0 -.75rem' : '.75rem 0'};
   &:hover {
     cursor: pointer;
   }
@@ -57,11 +62,13 @@ export default class Wrapper extends Component {
         <LeftNav>
           <h3>{this.props.title}</h3>
           <br />
-          {this.props.children.map((child, index) =>
-            <SubComponent
-              key={index}
-              onClick={() => this.setActive(child)}
-              active={this.state.active === child}>{child.props.name}</SubComponent>)}
+          <SubComponentContainer>
+            {this.props.children.map((child, index) =>
+              <SubComponent
+                key={index}
+                onClick={() => this.setActive(child)}
+                active={this.state.active === child}>{child.props.name}</SubComponent>)}
+          </SubComponentContainer>
         </LeftNav>
         <RightView>
           {this.state.active}
