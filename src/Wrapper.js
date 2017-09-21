@@ -46,7 +46,7 @@ export default class Wrapper extends Component {
     this.setActive = this.setActive.bind(this)
 
     this.state = {
-      active: props.children[0]
+      active: props.children[0] || props.children
     }
   }
 
@@ -57,13 +57,15 @@ export default class Wrapper extends Component {
   }
 
   render() {
+    let sectionChildren = this.props.children
+    if (!Array.isArray(sectionChildren)) sectionChildren = [sectionChildren]
     return (
       <Container>
         <LeftNav>
           <h3>{this.props.title}</h3>
           <br />
           <SubComponentContainer>
-            {this.props.children.map((child, index) =>
+            {sectionChildren.map((child, index) =>
               <SubComponent
                 key={index}
                 onClick={() => this.setActive(child)}
