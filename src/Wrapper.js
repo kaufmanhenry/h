@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { v4 } from 'uuid'
+import PropTypes from 'prop-types'
 
 const Container = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 `
 
 const LeftNav = styled.div`
@@ -40,7 +40,7 @@ const SubComponent = styled.div`
 `
 
 export default class Wrapper extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.setActive = this.setActive.bind(this)
@@ -50,13 +50,13 @@ export default class Wrapper extends Component {
     }
   }
 
-  setActive(child) {
+  setActive (child) {
     this.setState({
       active: child
     })
   }
 
-  render() {
+  render () {
     let sectionChildren = this.props.children
     if (!Array.isArray(sectionChildren)) sectionChildren = [sectionChildren]
     return (
@@ -78,4 +78,9 @@ export default class Wrapper extends Component {
       </Container>
     )
   }
+}
+
+Wrapper.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 }
