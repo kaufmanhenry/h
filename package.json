@@ -1,6 +1,6 @@
 {
   "name": "react-basic-style-guide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "repository": "https://github.com/hcjk/h.git",
   "author": "Henry Kaufman <hkaufman19@gmail.com>",
